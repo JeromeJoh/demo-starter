@@ -17,6 +17,8 @@
     <h1>Heading</h1>
   </header>
   <main>
+    <my-app></my-app>
+    <div id="app"></div>
   </main>
   <footer>
     Footer
@@ -25,6 +27,26 @@
     integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="index.js"></script>
+  <script type="module">
+    import { h, render } from "https://esm.sh/preact";
+    import { useState } from "https://esm.sh/preact/hooks";
+    import htm from "https://esm.sh/htm";
+
+    const html = htm.bind(h);
+
+    const App = () => {
+      const [count, setCount] = useState(0);
+      return html`
+        <div>
+          <h2>Main Content</h2>
+          <p>Count: ${count}</p>
+          <button onClick=${() => setCount(count + 1)}>+1</button>
+        </div>
+  `;
+    }
+
+    render(html`<${App} />`, document.getElementById('app'));
+  </script>
 </body>
 
 </html>
