@@ -3,14 +3,18 @@
 :root {
   --primary-color: #007bff;
   --secondary-color: #6c757d;
-
   font-family: 'Open Sans', sans-serif;
+}
+
+html {
+  font-size: clamp(14px, 1.1vw, 16px);
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  line-height: 1.5;
 }
 
 header {
